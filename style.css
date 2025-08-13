@@ -1,0 +1,373 @@
+/* Định nghĩa các biến CSS cho chế độ sáng */
+:root {
+    /* Màu nền chung */
+    --bg-primary-light: #ffffff; /* Rất sáng */
+    --bg-secondary-light: #f5f7fa; /* Hơi xám hơn primary */
+
+    /* Màu chữ */
+    --text-primary-light: #1a202c; /* Đậm */
+    --text-secondary-light: #4a5568; /* Hơi mờ */
+    --text-highlight-light: #007bff; /* Xanh dương nổi bật */
+
+    /* Màu header và footer */
+    --header-bg-light: linear-gradient(to right, #ffffff, #f0f4f8);
+    --header-text-light: #1a202c;
+
+    /* Màu sidebar */
+    --sidebar-bg-light: #ffffff;
+    --sidebar-text-light: #2d3748;
+    --sidebar-border-light: #e0e6ed;
+
+    /* Màu card */
+    --card-bg-light: #ffffff;
+    --card-shadow-light: rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    --card-hover-shadow-light: rgba(0, 0, 0, 0.2); /* Đổ bóng rõ hơn khi hover */
+    --card-border-light: #e0e6ed;
+
+    /* Màu nút toggle */
+    --toggle-bg-light: #cbd5e0;
+    --toggle-handle-light: #ffffff;
+}
+
+/* Định nghĩa các biến CSS cho chế độ tối */
+:root.dark {
+    /* Màu nền chung */
+    --bg-primary-dark: #0a0e14; /* Rất đậm, gần đen */
+    --bg-secondary-dark: #1f2937; /* Hơi sáng hơn primary dark */
+
+    /* Màu chữ */
+    --text-primary-dark: #e2e8f0; /* Rất sáng, dễ đọc */
+    --text-secondary-dark: #a0aec0; /* Hơi mờ hơn */
+    --text-highlight-dark: #66b2ff; /* Xanh dương sáng nổi bật */
+
+    /* Màu header và footer */
+    --header-bg-dark: linear-gradient(to right, #1f2937, #0a0e14);
+    --header-text-dark: #e2e8f0;
+
+    /* Màu sidebar */
+    --sidebar-bg-dark: #1f2937;
+    --sidebar-text-dark: #e2e8f0;
+    --sidebar-border-dark: #374151;
+
+    /* Màu card */
+    --card-bg-dark: #2d3748;
+    --card-shadow-dark: rgba(0, 0, 0, 0.5); /* Đổ bóng mạnh */
+    --card-hover-shadow-dark: rgba(0, 0, 0, 0.7); /* Đổ bóng rất mạnh khi hover */
+    --card-border-dark: #4a5568;
+
+    /* Màu nút toggle */
+    --toggle-bg-dark: #4b5563;
+    --toggle-handle-dark: #ffffff;
+}
+
+/* Áp dụng font và màu sắc chung cho body */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-primary-light);
+    color: var(--text-primary-light);
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* Áp dụng màu sắc cho chế độ tối khi body có class 'dark' */
+body.dark {
+    background-color: var(--bg-primary-dark);
+    color: var(--text-primary-dark);
+}
+
+/* Styling cho Header */
+header {
+    background-image: var(--header-bg-light);
+    color: var(--header-text-light);
+    transition: background-image 0.5s ease-in-out, color 0.5s ease-in-out;
+    border-bottom: 1px solid var(--sidebar-border-light);
+}
+
+body.dark header {
+    background-image: var(--header-bg-dark);
+    color: var(--header-text-dark);
+    border-bottom: 1px solid var(--sidebar-border-dark);
+}
+
+header h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+
+/* Styling cho Sidebar */
+.sidebar {
+    background-color: var(--sidebar-bg-light);
+    color: var(--sidebar-text-light);
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    border: 1px solid var(--sidebar-border-light);
+}
+
+body.dark .sidebar {
+    background-color: var(--sidebar-bg-dark);
+    color: var(--sidebar-text-dark);
+    border: 1px solid var(--sidebar-border-dark);
+}
+
+.sidebar h2 {
+    color: var(--text-primary-light);
+    transition: color 0.5s ease-in-out;
+}
+body.dark .sidebar h2 {
+    color: var(--text-primary-dark);
+}
+
+.filter-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    color: var(--text-secondary-light);
+}
+
+.filter-link:hover {
+    background-color: var(--bg-secondary-light);
+    color: var(--text-highlight-light);
+}
+
+body.dark .filter-link {
+    color: var(--text-secondary-dark);
+}
+
+body.dark .filter-link:hover {
+    background-color: var(--bg-secondary-dark);
+    color: var(--text-highlight-dark);
+}
+
+/* Styling cho Input Search */
+#movie-search-input {
+    border-color: var(--sidebar-border-light);
+    background-color: var(--card-bg-light);
+    color: var(--text-primary-light);
+}
+body.dark #movie-search-input {
+    border-color: var(--sidebar-border-dark);
+    background-color: var(--card-bg-dark);
+    color: var(--text-primary-dark);
+}
+#movie-search-input::placeholder {
+    color: var(--text-secondary-light);
+    opacity: 0.8;
+}
+body.dark #movie-search-input::placeholder {
+    color: var(--text-secondary-dark);
+    opacity: 0.8;
+}
+
+/* Styling cho Main Content */
+.main-content {
+    background-color: var(--bg-primary-light);
+    transition: background-color 0.5s ease-in-out;
+    border: 1px solid var(--sidebar-border-light);
+}
+
+body.dark .main-content {
+    background-color: var(--bg-primary-dark);
+    border: 1px solid var(--sidebar-border-dark);
+}
+
+.main-content h2 {
+    color: var(--text-primary-light);
+    transition: color 0.5s ease-in-out;
+}
+body.dark .main-content h2 {
+    color: var(--text-primary-dark);
+}
+
+/* Styling cho Movie Card */
+.movie-card {
+    background-color: var(--card-bg-light);
+    box-shadow: 0 6px 15px -3px var(--card-shadow-light), 0 3px 6px -2px var(--card-shadow-light);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.5s ease-in-out;
+    border: 1px solid var(--card-border-light);
+    overflow: hidden;
+}
+
+body.dark .movie-card {
+    background-color: var(--card-bg-dark);
+    box-shadow: 0 6px 15px -3px var(--card-shadow-dark), 0 3px 6px -2px var(--card-shadow-dark);
+    border: 1px solid var(--card-border-dark);
+}
+
+/* Hiệu ứng khi di chuột qua thẻ phim */
+.movie-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 25px -5px var(--card-hover-shadow-light), 0 6px 12px -5px var(--card-hover-shadow-light);
+    border-color: var(--text-highlight-light);
+}
+
+body.dark .movie-card:hover {
+    box-shadow: 0 12px 25px -5px var(--card-hover-shadow-dark), 0 6px 12px -5px var(--card-hover-shadow-dark);
+    border-color: var(--text-highlight-dark);
+}
+
+.movie-card img {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+}
+
+.movie-card h3 {
+    color: var(--text-primary-light);
+    transition: color 0.5s ease-in-out;
+}
+body.dark .movie-card h3 {
+    color: var(--text-primary-dark);
+}
+
+.movie-card p {
+    color: var(--text-secondary-light);
+    transition: color 0.5s ease-in-out;
+}
+body.dark .movie-card p {
+    color: var(--text-secondary-dark);
+}
+
+
+/* Styling cho nút chuyển đổi chế độ Sáng/Tối */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--toggle-bg-light);
+    transition: .4s;
+    border-radius: 34px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+}
+
+body.dark .slider {
+    background-color: var(--toggle-bg-dark);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--toggle-handle-light);
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+body.dark .slider:before {
+    background-color: var(--toggle-handle-dark);
+}
+
+input:checked + .slider {
+    background-color: #007bff;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #007bff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Responsive adjustments */
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) { /* Cho Tablet và Desktop */
+    .main-layout {
+        grid-template-columns: 300px 1fr;
+        grid-template-rows: auto;
+    }
+}
+
+/* Thêm hiệu ứng cho các tiêu đề chính */
+h1, h2, h3 {
+    text-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+body.dark h1, body.dark h2, body.dark h3 {
+    text-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+
+/* Footer styling */
+footer {
+    background-color: var(--bg-secondary-light);
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    border-top: 1px solid var(--sidebar-border-light);
+}
+
+body.dark footer {
+    background-color: var(--bg-secondary-dark);
+    border-top: 1px solid var(--sidebar-border-dark);
+}
+
+
+/* Modal Styling (cải tiến để trông chuyên nghiệp hơn) */
+#movie-detail-modal > div { /* Lấy phần tử nội dung modal */
+    background-color: var(--card-bg-light);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 15px rgba(0,0,0,0.1);
+    color: var(--text-primary-light);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out, background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+body.dark #movie-detail-modal > div {
+    background-color: var(--card-bg-dark);
+    color: var(--text-primary-dark);
+}
+
+#movie-detail-modal h2 {
+    color: var(--text-highlight-light);
+    font-size: 3rem;
+    text-shadow: none;
+}
+body.dark #movie-detail-modal h2 {
+    color: var(--text-highlight-dark);
+}
+
+#movie-detail-modal p {
+    color: var(--text-secondary-light);
+}
+body.dark #movie-detail-modal p {
+    color: var(--text-secondary-dark);
+}
+
+#close-modal-btn {
+    color: var(--text-secondary-light);
+    transition: color 0.3s ease-in-out;
+}
+#close-modal-btn:hover {
+    color: var(--text-primary-light);
+}
+body.dark #close-modal-btn {
+    color: var(--text-secondary-dark);
+}
+body.dark #close-modal-btn:hover {
+    color: var(--text-primary-dark);
+}
+
+/* Transition cho modal khi xuất hiện/biến mất */
+.fade-in .transform {
+    opacity: 1;
+    transform: scale(1);
+}

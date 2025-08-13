@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Discovery App</title>
+    <!-- Tải Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tải font Inter từ Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Liên kết đến file CSS tùy chỉnh của bạn -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header của ứng dụng -->
+    <header class="py-5 px-8 flex justify-between items-center header-bg-gradient rounded-b-2xl shadow-lg">
+        <h1 class="text-4xl font-extrabold tracking-wide text-header-light dark:text-header-dark">
+            Movie <span class="text-blue-400">Discovery</span>
+        </h1>
+        <!-- Nút chuyển đổi chế độ Sáng/Tối -->
+        <label class="toggle-switch">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider"></span>
+        </label>
+    </header>
+
+    <!-- Bố cục chính của ứng dụng (sử dụng CSS Grid) -->
+    <div class="main-layout flex-grow grid gap-8 p-8">
+        <!-- Thanh bên (Sidebar) chứa các bộ lọc -->
+        <aside class="sidebar rounded-2xl p-6 shadow-xl h-full border border-gray-100 dark:border-gray-700">
+            <h2 class="text-2xl font-bold mb-6 border-b pb-4 border-gray-200 dark:border-gray-700">Bộ lọc phim</h2>
+            <div class="space-y-7">
+                <!-- Bộ lọc thể loại -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-3 pb-2 text-gray-700 dark:text-gray-300">Thể loại</h3>
+                    <ul id="genre-checkboxes" class="space-y-3 text-base">
+                        <!-- Thể loại sẽ được tạo tự động bởi JS -->
+                    </ul>
+                </div>
+                <!-- Ô tìm kiếm phim -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-3 pb-2 text-gray-700 dark:text-gray-300">Tìm kiếm phim</h3>
+                    <input type="text" id="movie-search-input" placeholder="Tìm kiếm theo tên phim..."
+                           class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
+                                  dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 transition-colors duration-300">
+                </div>
+                 <!-- Bộ lọc năm phát hành (ví dụ, có thể tạo động tương tự thể loại) -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-3 pb-2 text-gray-700 dark:text-gray-300">Năm phát hành</h3>
+                    <ul class="space-y-3 text-base">
+                        <li><a href="#" class="filter-link">2024</a></li>
+                        <li><a href="#" class="filter-link">2023</a></li>
+                        <li><a href="#" class="filter-link">2022</a></li>
+                        <li><a href="#" class="filter-link">Thập niên 2010</a></li>
+                        <li><a href="#" class="filter-link">Thập niên 2000</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Khu vực hiển thị chính (Main Content) -->
+        <main class="main-content rounded-2xl p-7 shadow-xl border border-gray-100 dark:border-gray-700">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-gray-100">Phim nổi bật</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-7">
+                <!-- Thẻ phim sẽ được tạo tự động bởi JS -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer của ứng dụng -->
+    <footer class="py-4 px-8 text-center text-sm text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700 mt-auto">
+        &copy; 2025 Movie Discovery App. All rights reserved.
+    </footer>
+
+    <!-- Liên kết đến file JavaScript của bạn -->
+    <script src="js/app.js"></script>
+</body>
+</html>
